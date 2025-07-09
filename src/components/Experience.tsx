@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Calendar, MapPin, TrendingUp, Award, Briefcase, Users, Building, Zap } from 'lucide-react';
 
 const Experience = () => {
@@ -50,6 +51,66 @@ const Experience = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 80, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 1,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const slideInLeft = {
+    hidden: { opacity: 0, x: -100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const slideInRight = {
+    hidden: { opacity: 0, x: 100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <section className="py-32 bg-white relative overflow-hidden">
       {/* Premium background pattern */}
@@ -62,40 +123,94 @@ const Experience = () => {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Premium header */}
-        <div className="text-center mb-16 sm:mb-20 lg:mb-24">
-          <div className="inline-flex items-center mb-6 sm:mb-8">
+        <motion.div 
+          className="text-center mb-16 sm:mb-20 lg:mb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+        >
+          <motion.div 
+            className="inline-flex items-center mb-6 sm:mb-8"
+            variants={fadeInUp}
+          >
             <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-black to-transparent"></div>
             <div className="mx-4 sm:mx-8 flex items-center">
-              <Building className="w-4 h-4 sm:w-6 sm:h-6 text-black mr-2 sm:mr-3" />
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              >
+                <Building className="w-4 h-4 sm:w-6 sm:h-6 text-black mr-2 sm:mr-3" />
+              </motion.div>
               <span className="text-black/60 font-light tracking-[0.2em] text-xs sm:text-sm uppercase">Career</span>
             </div>
             <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-black to-transparent"></div>
-          </div>
+          </motion.div>
           
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-thin text-black mb-6 sm:mb-8 tracking-tight">
+          <motion.h2 
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-thin text-black mb-6 sm:mb-8 tracking-tight"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             Professional
-            <span className="block font-black mt-2 sm:mt-4">JOURNEY</span>
-          </h2>
+            <motion.span 
+              className="block font-black mt-2 sm:mt-4"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            >
+              JOURNEY
+            </motion.span>
+          </motion.h2>
           
-          <p className="text-base sm:text-lg lg:text-xl text-black/70 max-w-2xl lg:max-w-3xl mx-auto font-light leading-relaxed px-4 sm:px-0">
+          <motion.p 
+            className="text-base sm:text-lg lg:text-xl text-black/70 max-w-2xl lg:max-w-3xl mx-auto font-light leading-relaxed px-4 sm:px-0"
+            variants={fadeInUp}
+          >
             Building innovative solutions and leading transformative initiatives across diverse industries
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
         
         {/* Premium timeline */}
         <div className="relative">
           {/* Central timeline line */}
-          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-black/20 via-black/40 to-black/20"></div>
+          <motion.div 
+            className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-black/20 via-black/40 to-black/20"
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+          />
           
           {experiences.map((exp, index) => (
-            <div key={index} className="relative mb-16 sm:mb-20 lg:mb-32 last:mb-0">
+            <motion.div 
+              key={index} 
+              className="relative mb-16 sm:mb-20 lg:mb-32 last:mb-0"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={itemVariants}
+            >
               {/* Timeline dot */}
-              <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-black rounded-full border-4 border-white shadow-lg z-10"></div>
+              <motion.div 
+                className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-black rounded-full border-4 border-white shadow-lg z-10"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ scale: 1.5 }}
+              />
               
               {/* Experience card */}
               <div className={`grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center ${index % 2 === 0 ? '' : 'lg:grid-flow-col-dense'}`}>
                 {/* Content side */}
-                <div className={`${index % 2 === 0 ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'} space-y-6 sm:space-y-8`}>
+                <motion.div 
+                  className={`${index % 2 === 0 ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'} space-y-6 sm:space-y-8`}
+                  variants={index % 2 === 0 ? slideInLeft : slideInRight}
+                >
                   {/* Header */}
                   <div>
                     <div className={`flex items-center mb-3 sm:mb-4 ${index % 2 === 0 ? 'lg:justify-end' : ''}`}>
@@ -129,56 +244,103 @@ const Experience = () => {
                   
                   {/* Impact statement */}
                   <div className="relative">
-                    <div className="absolute inset-0 bg-black/5 rounded-lg"></div>
+                    <motion.div 
+                      className="absolute inset-0 bg-black/5 rounded-lg"
+                      animate={{ opacity: [0.05, 0.1, 0.05] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    />
                     <div className="relative p-4 sm:p-6 border-l-4 border-black">
                       <div className="flex items-center mb-2">
-                        <Zap size={16} className="sm:w-5 sm:h-5 text-black mr-2" />
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          <Zap size={16} className="sm:w-5 sm:h-5 text-black mr-2" />
+                        </motion.div>
                         <span className="font-medium text-black/80 text-xs sm:text-sm uppercase tracking-wide">Key Impact</span>
                       </div>
                       <p className="text-sm sm:text-base text-black font-light italic">{exp.impact}</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
                 
                 {/* Achievements side */}
-                <div className={`${index % 2 === 0 ? 'lg:pl-16' : 'lg:pr-16'} space-y-4 sm:space-y-6`}>
+                <motion.div 
+                  className={`${index % 2 === 0 ? 'lg:pl-16' : 'lg:pr-16'} space-y-4 sm:space-y-6`}
+                  variants={index % 2 === 0 ? slideInRight : slideInLeft}
+                >
                   <div className="relative">
-                    <div className="absolute inset-0 bg-black/3 rounded-xl sm:rounded-2xl transform -rotate-1"></div>
-                    <div className="relative bg-white border border-black/10 rounded-xl sm:rounded-2xl p-6 sm:p-8">
+                    <motion.div 
+                      className="absolute inset-0 bg-black/3 rounded-xl sm:rounded-2xl"
+                      animate={{ rotate: [-1, 1, -1] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                    <motion.div 
+                      className="relative bg-white border border-black/10 rounded-xl sm:rounded-2xl p-6 sm:p-8"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
                       <div className="flex items-center mb-4 sm:mb-6">
-                        <Award size={20} className="sm:w-6 sm:h-6 text-black mr-2 sm:mr-3" />
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                        >
+                          <Award size={20} className="sm:w-6 sm:h-6 text-black mr-2 sm:mr-3" />
+                        </motion.div>
                         <h4 className="font-medium text-black text-base sm:text-lg tracking-wide">Key Achievements</h4>
                       </div>
                       
                       <div className="space-y-3 sm:space-y-4">
                         {exp.achievements.map((achievement, achIndex) => (
-                          <div key={achIndex} className="group flex items-start">
-                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-black rounded-full mt-2 sm:mt-3 mr-3 sm:mr-4 flex-shrink-0 group-hover:scale-150 transition-transform duration-300"></div>
+                          <motion.div 
+                            key={achIndex} 
+                            className="group flex items-start"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: achIndex * 0.1 }}
+                          >
+                            <motion.div 
+                              className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-black rounded-full mt-2 sm:mt-3 mr-3 sm:mr-4 flex-shrink-0"
+                              whileHover={{ scale: 2 }}
+                              transition={{ duration: 0.3 }}
+                            />
                             <span className="text-sm sm:text-base text-black/80 font-light leading-relaxed group-hover:text-black transition-colors duration-300">
                               {achievement}
                             </span>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         
         {/* Premium CTA */}
-        <div className="text-center mt-20 sm:mt-24 lg:mt-32">
+        <motion.div 
+          className="text-center mt-20 sm:mt-24 lg:mt-32"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="inline-flex items-center group cursor-pointer">
             <div className="w-12 sm:w-16 h-px bg-black/30 group-hover:bg-black/60 transition-all duration-500"></div>
             <div className="mx-4 sm:mx-8 flex items-center text-black hover:text-black/80 transition-colors duration-300">
-              <Users size={20} className="sm:w-6 sm:h-6 mr-3 sm:mr-4" />
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Users size={20} className="sm:w-6 sm:h-6 mr-3 sm:mr-4" />
+              </motion.div>
               <span className="font-light tracking-wider text-sm sm:text-base lg:text-lg">Ready to Lead Your Next Project</span>
             </div>
             <div className="w-12 sm:w-16 h-px bg-black/30 group-hover:bg-black/60 transition-all duration-500"></div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

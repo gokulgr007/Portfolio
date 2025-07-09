@@ -99,30 +99,30 @@ const Navigation = () => {
       </div>
       
       {/* Mobile menu with smooth animation */}
-      <div className={`md:hidden fixed inset-0 top-16 sm:top-20 z-40 transition-all duration-500 ${
+      <div className={`md:hidden fixed inset-0 top-16 sm:top-20 z-40 transition-all duration-700 ${
         isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
       }`}>
         {/* Backdrop */}
         <div 
-          className={`absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-500 ${
+          className={`absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-700 ${
             isOpen ? 'opacity-100' : 'opacity-0'
           }`}
           onClick={() => setIsOpen(false)}
         ></div>
         
         {/* Menu content */}
-        <div className={`relative bg-black/95 backdrop-blur-md border-t border-white/10 transform transition-all duration-500 ${
-          isOpen ? 'translate-y-0' : '-translate-y-full'
+        <div className={`relative bg-black/95 backdrop-blur-md border-t border-white/10 transform transition-all duration-700 ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
           <div className="px-4 sm:px-6 py-8 space-y-6">
             {navItems.map((item, index) => (
               <a
                 key={item.name}
                 href={item.href}
-                className={`block text-white/80 hover:text-white transition-all duration-300 font-light text-xl sm:text-2xl tracking-wide transform transition-all duration-500 ${
-                  isOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                className={`block text-white/80 hover:text-white transition-all duration-300 font-light text-xl sm:text-2xl tracking-wide transform transition-all duration-700 ${
+                  isOpen ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
                 }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                style={{ transitionDelay: `${index * 150}ms` }}
                 onClick={() => setIsOpen(false)}
               >
                 <div className="flex items-center py-3 border-b border-white/10 hover:border-white/30 transition-colors duration-300">
@@ -133,9 +133,9 @@ const Navigation = () => {
             ))}
             
             {/* Mobile social links */}
-            <div className={`pt-8 border-t border-white/10 transform transition-all duration-500 ${
+            <div className={`pt-8 border-t border-white/10 transform transition-all duration-700 ${
               isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-            }`} style={{ transitionDelay: '600ms' }}>
+            }`} style={{ transitionDelay: '800ms' }}>
               <p className="text-white/60 text-sm mb-4 font-light">Connect with me</p>
               <div className="flex space-x-6">
                 <a href="#" className="text-white/60 hover:text-white transition-colors duration-300">

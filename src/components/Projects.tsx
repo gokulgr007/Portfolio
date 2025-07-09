@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ExternalLink, Github, Star, Zap, Users, TrendingUp, Award, Eye } from 'lucide-react';
 
 const Projects = () => {
@@ -45,6 +46,66 @@ const Projects = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 80, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 1,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const slideInLeft = {
+    hidden: { opacity: 0, x: -100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const slideInRight = {
+    hidden: { opacity: 0, x: 100 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <section id="projects" className="py-32 bg-black relative overflow-hidden">
       {/* Premium background pattern */}
@@ -57,72 +118,153 @@ const Projects = () => {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Premium header */}
-        <div className="text-center mb-16 sm:mb-20 lg:mb-24">
-          <div className="inline-flex items-center mb-6 sm:mb-8">
+        <motion.div 
+          className="text-center mb-16 sm:mb-20 lg:mb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+        >
+          <motion.div 
+            className="inline-flex items-center mb-6 sm:mb-8"
+            variants={fadeInUp}
+          >
             <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
             <div className="mx-4 sm:mx-8 flex items-center">
-              <Award className="w-4 h-4 sm:w-6 sm:h-6 text-white mr-2 sm:mr-3" />
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              >
+                <Award className="w-4 h-4 sm:w-6 sm:h-6 text-white mr-2 sm:mr-3" />
+              </motion.div>
               <span className="text-white/60 font-light tracking-[0.2em] text-xs sm:text-sm uppercase">Portfolio</span>
             </div>
             <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
-          </div>
+          </motion.div>
           
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-thin text-white mb-6 sm:mb-8 tracking-tight">
+          <motion.h2 
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-thin text-white mb-6 sm:mb-8 tracking-tight"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             Featured
-            <span className="block font-black mt-2 sm:mt-4">PROJECTS</span>
-          </h2>
+            <motion.span 
+              className="block font-black mt-2 sm:mt-4"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            >
+              PROJECTS
+            </motion.span>
+          </motion.h2>
           
-          <p className="text-base sm:text-lg lg:text-xl text-white/70 max-w-2xl lg:max-w-3xl mx-auto font-light leading-relaxed px-4 sm:px-0">
+          <motion.p 
+            className="text-base sm:text-lg lg:text-xl text-white/70 max-w-2xl lg:max-w-3xl mx-auto font-light leading-relaxed px-4 sm:px-0"
+            variants={fadeInUp}
+          >
             Showcasing innovative solutions that redefine industry standards and push technological boundaries
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
         
         {/* Premium projects grid */}
         <div className="space-y-16 sm:space-y-20 lg:space-y-32">
           {projects.map((project, index) => (
-            <div key={index} className="group relative">
+            <motion.div 
+              key={index} 
+              className="group relative"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={itemVariants}
+            >
               {/* Project layout */}
               <div className={`grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                 {/* Image section */}
-                <div className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                  <div className="absolute inset-0 bg-white/5 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-3 group-hover:rotate-3 sm:group-hover:rotate-6 transition-transform duration-700"></div>
-                  <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 group-hover:border-white/20 transition-all duration-500">
+                <motion.div 
+                  className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}
+                  variants={index % 2 === 1 ? slideInRight : slideInLeft}
+                >
+                  <motion.div 
+                    className="absolute inset-0 bg-white/5 rounded-xl sm:rounded-2xl"
+                    animate={{ rotate: [1, 3, 1] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <motion.div 
+                    className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 group-hover:border-white/20 transition-all duration-500"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <div className="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] overflow-hidden">
-                      <img 
+                      <motion.img 
                         src={project.image} 
                         alt={project.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter grayscale group-hover:grayscale-0"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.7 }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                     </div>
                     
                     {/* Overlay content */}
                     <div className="absolute inset-0 flex items-end p-4 sm:p-6 lg:p-8">
-                      <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 w-full sm:w-auto">
-                        <a href={project.github} className="flex items-center justify-center bg-white/10 backdrop-blur-sm text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 border border-white/20">
+                      <motion.div 
+                        className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 w-full sm:w-auto"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                      >
+                        <motion.a 
+                          href={project.github} 
+                          className="flex items-center justify-center bg-white/10 backdrop-blur-sm text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 border border-white/20"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
                           <Github size={16} className="sm:w-5 sm:h-5 mr-2" />
                           <span className="font-medium">Code</span>
-                        </a>
-                        <a href={project.live} className="flex items-center justify-center bg-white text-black px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-white/90 transition-all duration-300">
+                        </motion.a>
+                        <motion.a 
+                          href={project.live} 
+                          className="flex items-center justify-center bg-white text-black px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-white/90 transition-all duration-300"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
                           <Eye size={16} className="sm:w-5 sm:h-5 mr-2" />
                           <span className="font-medium">Live Demo</span>
-                        </a>
-                      </div>
+                        </motion.a>
+                      </motion.div>
                     </div>
                     
                     {project.featured && (
-                      <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+                      <motion.div 
+                        className="absolute top-4 right-4 sm:top-6 sm:right-6"
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                      >
                         <div className="flex items-center bg-white text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-medium text-sm">
-                          <Star size={14} className="sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                          >
+                            <Star size={14} className="sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                          </motion.div>
                           Featured
                         </div>
-                      </div>
+                      </motion.div>
                     )}
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
                 
                 {/* Content section */}
-                <div className={`space-y-6 sm:space-y-8 ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+                <motion.div 
+                  className={`space-y-6 sm:space-y-8 ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}
+                  variants={index % 2 === 1 ? slideInLeft : slideInRight}
+                >
                   <div>
                     <div className="flex items-center mb-3 sm:mb-4">
                       <div className="w-8 sm:w-12 h-px bg-white/30"></div>
@@ -141,45 +283,85 @@ const Projects = () => {
                   {/* Tech stack */}
                   <div>
                     <h4 className="text-white/50 text-xs sm:text-sm font-light tracking-wider uppercase mb-3 sm:mb-4">Technology Stack</h4>
-                    <div className="flex flex-wrap gap-2 sm:gap-3">
+                    <motion.div 
+                      className="flex flex-wrap gap-2 sm:gap-3"
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      variants={containerVariants}
+                    >
                       {project.tech.map((tech, techIndex) => (
-                        <span key={techIndex} className="border border-white/20 text-white/80 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-light hover:border-white/40 hover:text-white transition-all duration-300">
+                        <motion.span 
+                          key={techIndex} 
+                          className="border border-white/20 text-white/80 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-light hover:border-white/40 hover:text-white transition-all duration-300"
+                          variants={fadeInUp}
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.2 }}
+                        >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
-                    </div>
+                    </motion.div>
                   </div>
                   
                   {/* Stats */}
-                  <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 pt-6 sm:pt-8 border-t border-white/10">
+                  <motion.div 
+                    className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 pt-6 sm:pt-8 border-t border-white/10"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={containerVariants}
+                  >
                     {Object.entries(project.stats).map(([key, value], statIndex) => (
-                      <div key={statIndex} className="text-center group/stat">
+                      <motion.div 
+                        key={statIndex} 
+                        className="text-center group/stat"
+                        variants={fadeInUp}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.2 }}
+                      >
                         <div className="text-xl sm:text-2xl lg:text-3xl font-light text-white mb-1 sm:mb-2 group-hover/stat:text-white/80 transition-colors">
                           {value}
                         </div>
                         <div className="text-xs sm:text-sm text-white/50 capitalize font-light tracking-wide">
                           {key.replace(/([A-Z])/g, ' $1').trim()}
                         </div>
-                      </div>
+                      </motion.div>
                     ))}
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         
         {/* Premium CTA */}
-        <div className="text-center mt-20 sm:mt-24 lg:mt-32">
+        <motion.div 
+          className="text-center mt-20 sm:mt-24 lg:mt-32"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="inline-flex items-center group cursor-pointer">
             <div className="w-12 sm:w-16 h-px bg-white/30 group-hover:bg-white/60 transition-all duration-500"></div>
-            <a href="#" className="mx-4 sm:mx-8 flex items-center text-white hover:text-white/80 transition-colors duration-300">
+            <motion.a 
+              href="#" 
+              className="mx-4 sm:mx-8 flex items-center text-white hover:text-white/80 transition-colors duration-300"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
               <span className="font-light tracking-wider text-sm sm:text-base lg:text-lg mr-3 sm:mr-4">View All Projects</span>
-              <TrendingUp size={18} className="sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
-            </a>
+              <motion.div
+                whileHover={{ x: 8 }}
+                transition={{ duration: 0.3 }}
+              >
+                <TrendingUp size={18} className="sm:w-5 sm:h-5" />
+              </motion.div>
+            </motion.a>
             <div className="w-12 sm:w-16 h-px bg-white/30 group-hover:bg-white/60 transition-all duration-500"></div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
