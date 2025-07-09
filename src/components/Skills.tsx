@@ -112,7 +112,7 @@ const Skills = () => {
             <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
             <div className="mx-4 sm:mx-8 flex items-center">
               <motion.div
-                animate={{ rotate: 360 }}
+                animate={{ rotate: 0 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               >
                 <Layers className="w-4 h-4 sm:w-6 sm:h-6 text-white mr-2 sm:mr-3" />
