@@ -1,28 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Hide default cursor and add smooth animations */
-* {
-  cursor: none !important;
-  transition: transform 0.1s ease-out;
-}
-
-/* Ensure cursor is hidden on all interactive elements */
-a, button, input, textarea, select, [role="button"], .cursor-pointer {
-  cursor: none !important;
-}
-
-/* Smooth scrolling for better cursor tracking */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Enhanced hover states for better cursor interaction */
-a, button, .group {
-  transition: all 0.3s ease;
-}
-
-a:hover, button:hover, .group:hover {
-  transform: translateY(-2px);
-}

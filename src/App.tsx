@@ -1,5 +1,4 @@
 import React from 'react';
-import GlobalCursor from './components/GlobalCursor';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -12,7 +11,6 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
-      <GlobalCursor />
       <Navigation />
       <Hero />
       <section id="about">
