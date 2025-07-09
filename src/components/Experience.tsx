@@ -56,28 +56,28 @@ const Experience = () => {
       <div className="absolute inset-0 opacity-3">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, black 1px, transparent 0)`,
-          backgroundSize: '60px 60px'
+          backgroundSize: '50px 50px'
         }}></div>
       </div>
       
-      <div className="container mx-auto px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Premium header */}
-        <div className="text-center mb-24">
-          <div className="inline-flex items-center mb-8">
-            <div className="w-24 h-px bg-gradient-to-r from-transparent via-black to-transparent"></div>
-            <div className="mx-8 flex items-center">
-              <Building className="w-6 h-6 text-black mr-3" />
-              <span className="text-black/60 font-light tracking-[0.2em] text-sm uppercase">Career</span>
+        <div className="text-center mb-16 sm:mb-20 lg:mb-24">
+          <div className="inline-flex items-center mb-6 sm:mb-8">
+            <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-black to-transparent"></div>
+            <div className="mx-4 sm:mx-8 flex items-center">
+              <Building className="w-4 h-4 sm:w-6 sm:h-6 text-black mr-2 sm:mr-3" />
+              <span className="text-black/60 font-light tracking-[0.2em] text-xs sm:text-sm uppercase">Career</span>
             </div>
-            <div className="w-24 h-px bg-gradient-to-r from-transparent via-black to-transparent"></div>
+            <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-black to-transparent"></div>
           </div>
           
-          <h2 className="text-7xl md:text-8xl font-thin text-black mb-8 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-thin text-black mb-6 sm:mb-8 tracking-tight">
             Professional
-            <span className="block font-black mt-4">JOURNEY</span>
+            <span className="block font-black mt-2 sm:mt-4">JOURNEY</span>
           </h2>
           
-          <p className="text-xl text-black/70 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-black/70 max-w-2xl lg:max-w-3xl mx-auto font-light leading-relaxed px-4 sm:px-0">
             Building innovative solutions and leading transformative initiatives across diverse industries
           </p>
         </div>
@@ -85,44 +85,44 @@ const Experience = () => {
         {/* Premium timeline */}
         <div className="relative">
           {/* Central timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-black/20 via-black/40 to-black/20"></div>
+          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-black/20 via-black/40 to-black/20"></div>
           
           {experiences.map((exp, index) => (
-            <div key={index} className="relative mb-32 last:mb-0">
+            <div key={index} className="relative mb-16 sm:mb-20 lg:mb-32 last:mb-0">
               {/* Timeline dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-black rounded-full border-4 border-white shadow-lg z-10"></div>
+              <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-black rounded-full border-4 border-white shadow-lg z-10"></div>
               
               {/* Experience card */}
-              <div className={`grid lg:grid-cols-2 gap-16 items-center ${index % 2 === 0 ? '' : 'lg:grid-flow-col-dense'}`}>
+              <div className={`grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center ${index % 2 === 0 ? '' : 'lg:grid-flow-col-dense'}`}>
                 {/* Content side */}
-                <div className={`${index % 2 === 0 ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'} space-y-8`}>
+                <div className={`${index % 2 === 0 ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'} space-y-6 sm:space-y-8`}>
                   {/* Header */}
                   <div>
-                    <div className={`flex items-center mb-4 ${index % 2 === 0 ? 'lg:justify-end' : ''}`}>
+                    <div className={`flex items-center mb-3 sm:mb-4 ${index % 2 === 0 ? 'lg:justify-end' : ''}`}>
                       <div className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>
-                        <div className="w-12 h-px bg-black/30"></div>
-                        <span className="mx-4 text-black/50 text-sm font-light tracking-wider uppercase">
+                        <div className="w-8 sm:w-12 h-px bg-black/30"></div>
+                        <span className="mx-3 sm:mx-4 text-black/50 text-xs sm:text-sm font-light tracking-wider uppercase">
                           {exp.period}
                         </span>
                       </div>
                     </div>
                     
-                    <h3 className="text-4xl md:text-5xl font-light text-black mb-2 leading-tight">
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-light text-black mb-2 leading-tight">
                       {exp.title}
                     </h3>
                     
-                    <div className="flex items-center text-black/60 mb-6 space-x-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center text-black/60 mb-4 sm:mb-6 space-y-2 sm:space-y-0 sm:space-x-6">
                       <div className="flex items-center">
-                        <Briefcase size={16} className="mr-2" />
+                        <Briefcase size={14} className="sm:w-4 sm:h-4 mr-2" />
                         <span className="font-medium">{exp.company}</span>
                       </div>
                       <div className="flex items-center">
-                        <MapPin size={16} className="mr-2" />
+                        <MapPin size={14} className="sm:w-4 sm:h-4 mr-2" />
                         <span>{exp.location}</span>
                       </div>
                     </div>
                     
-                    <p className="text-lg text-black/70 leading-relaxed font-light mb-8">
+                    <p className="text-base sm:text-lg text-black/70 leading-relaxed font-light mb-6 sm:mb-8">
                       {exp.description}
                     </p>
                   </div>
@@ -130,31 +130,31 @@ const Experience = () => {
                   {/* Impact statement */}
                   <div className="relative">
                     <div className="absolute inset-0 bg-black/5 rounded-lg"></div>
-                    <div className="relative p-6 border-l-4 border-black">
+                    <div className="relative p-4 sm:p-6 border-l-4 border-black">
                       <div className="flex items-center mb-2">
-                        <Zap size={18} className="text-black mr-2" />
-                        <span className="font-medium text-black/80 text-sm uppercase tracking-wide">Key Impact</span>
+                        <Zap size={16} className="sm:w-5 sm:h-5 text-black mr-2" />
+                        <span className="font-medium text-black/80 text-xs sm:text-sm uppercase tracking-wide">Key Impact</span>
                       </div>
-                      <p className="text-black font-light italic">{exp.impact}</p>
+                      <p className="text-sm sm:text-base text-black font-light italic">{exp.impact}</p>
                     </div>
                   </div>
                 </div>
                 
                 {/* Achievements side */}
-                <div className={`${index % 2 === 0 ? 'lg:pl-16' : 'lg:pr-16'} space-y-6`}>
+                <div className={`${index % 2 === 0 ? 'lg:pl-16' : 'lg:pr-16'} space-y-4 sm:space-y-6`}>
                   <div className="relative">
-                    <div className="absolute inset-0 bg-black/3 rounded-2xl transform -rotate-1"></div>
-                    <div className="relative bg-white border border-black/10 rounded-2xl p-8">
-                      <div className="flex items-center mb-6">
-                        <Award size={24} className="text-black mr-3" />
-                        <h4 className="font-medium text-black text-lg tracking-wide">Key Achievements</h4>
+                    <div className="absolute inset-0 bg-black/3 rounded-xl sm:rounded-2xl transform -rotate-1"></div>
+                    <div className="relative bg-white border border-black/10 rounded-xl sm:rounded-2xl p-6 sm:p-8">
+                      <div className="flex items-center mb-4 sm:mb-6">
+                        <Award size={20} className="sm:w-6 sm:h-6 text-black mr-2 sm:mr-3" />
+                        <h4 className="font-medium text-black text-base sm:text-lg tracking-wide">Key Achievements</h4>
                       </div>
                       
-                      <div className="space-y-4">
+                      <div className="space-y-3 sm:space-y-4">
                         {exp.achievements.map((achievement, achIndex) => (
                           <div key={achIndex} className="group flex items-start">
-                            <div className="w-2 h-2 bg-black rounded-full mt-3 mr-4 flex-shrink-0 group-hover:scale-150 transition-transform duration-300"></div>
-                            <span className="text-black/80 font-light leading-relaxed group-hover:text-black transition-colors duration-300">
+                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-black rounded-full mt-2 sm:mt-3 mr-3 sm:mr-4 flex-shrink-0 group-hover:scale-150 transition-transform duration-300"></div>
+                            <span className="text-sm sm:text-base text-black/80 font-light leading-relaxed group-hover:text-black transition-colors duration-300">
                               {achievement}
                             </span>
                           </div>
@@ -169,14 +169,14 @@ const Experience = () => {
         </div>
         
         {/* Premium CTA */}
-        <div className="text-center mt-32">
+        <div className="text-center mt-20 sm:mt-24 lg:mt-32">
           <div className="inline-flex items-center group cursor-pointer">
-            <div className="w-16 h-px bg-black/30 group-hover:bg-black/60 transition-all duration-500"></div>
-            <div className="mx-8 flex items-center text-black hover:text-black/80 transition-colors duration-300">
-              <Users size={24} className="mr-4" />
-              <span className="font-light tracking-wider text-lg">Ready to Lead Your Next Project</span>
+            <div className="w-12 sm:w-16 h-px bg-black/30 group-hover:bg-black/60 transition-all duration-500"></div>
+            <div className="mx-4 sm:mx-8 flex items-center text-black hover:text-black/80 transition-colors duration-300">
+              <Users size={20} className="sm:w-6 sm:h-6 mr-3 sm:mr-4" />
+              <span className="font-light tracking-wider text-sm sm:text-base lg:text-lg">Ready to Lead Your Next Project</span>
             </div>
-            <div className="w-16 h-px bg-black/30 group-hover:bg-black/60 transition-all duration-500"></div>
+            <div className="w-12 sm:w-16 h-px bg-black/30 group-hover:bg-black/60 transition-all duration-500"></div>
           </div>
         </div>
       </div>

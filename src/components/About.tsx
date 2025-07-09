@@ -38,58 +38,58 @@ const About = () => {
       <div className="absolute inset-0 opacity-3">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, black 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
+          backgroundSize: '30px 30px'
         }}></div>
       </div>
       
-      <div className="container mx-auto px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Premium header */}
-        <div className="text-center mb-24">
-          <div className="inline-flex items-center mb-8">
-            <div className="w-24 h-px bg-gradient-to-r from-transparent via-black to-transparent"></div>
-            <div className="mx-8 flex items-center">
-              <Target className="w-6 h-6 text-black mr-3" />
-              <span className="text-black/60 font-light tracking-[0.2em] text-sm uppercase">About</span>
+        <div className="text-center mb-16 sm:mb-20 lg:mb-24">
+          <div className="inline-flex items-center mb-6 sm:mb-8">
+            <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-black to-transparent"></div>
+            <div className="mx-4 sm:mx-8 flex items-center">
+              <Target className="w-4 h-4 sm:w-6 sm:h-6 text-black mr-2 sm:mr-3" />
+              <span className="text-black/60 font-light tracking-[0.2em] text-xs sm:text-sm uppercase">About</span>
             </div>
-            <div className="w-24 h-px bg-gradient-to-r from-transparent via-black to-transparent"></div>
+            <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-black to-transparent"></div>
           </div>
           
-          <h2 className="text-7xl md:text-8xl font-thin text-black mb-8 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-thin text-black mb-6 sm:mb-8 tracking-tight">
             The
-            <span className="block font-black mt-4">STORY</span>
+            <span className="block font-black mt-2 sm:mt-4">STORY</span>
           </h2>
           
-          <p className="text-xl text-black/70 max-w-4xl mx-auto font-light leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-black/70 max-w-2xl lg:max-w-4xl mx-auto font-light leading-relaxed px-4 sm:px-0">
             Passionate full-stack developer with 8+ years of experience creating digital masterpieces that transform businesses and delight users worldwide.
           </p>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-24 items-center mb-32">
+        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center mb-20 sm:mb-24 lg:mb-32">
           {/* Image section */}
           <div className="relative">
-            <div className="absolute inset-0 bg-black/5 rounded-2xl transform rotate-3"></div>
-            <div className="relative overflow-hidden rounded-2xl border border-black/10">
+            <div className="absolute inset-0 bg-black/5 rounded-xl sm:rounded-2xl transform rotate-1 sm:rotate-3"></div>
+            <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-black/10">
               <img 
                 src="/photo.png" 
                 alt="Gokul GR - Professional Developer" 
-                className="w-full h-[1000px] object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-full h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[700px] object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
           </div>
           
           {/* Content section */}
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-10 lg:space-y-12">
             <div>
-              <h3 className="text-4xl font-light text-black mb-8 leading-tight">The Journey</h3>
-              <div className="space-y-8">
-                <p className="text-lg text-black/70 leading-relaxed font-light">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light text-black mb-6 sm:mb-8 leading-tight">The Journey</h3>
+              <div className="space-y-6 sm:space-y-8">
+                <p className="text-base sm:text-lg text-black/70 leading-relaxed font-light">
                   My coding journey began with curiosity and evolved into a passion for creating 
                   digital experiences that matter. From crafting pixel-perfect UIs to architecting 
                   robust backend systems, I thrive on solving complex challenges with elegant solutions.
                 </p>
                 
-                <p className="text-lg text-black/70 leading-relaxed font-light">
+                <p className="text-base sm:text-lg text-black/70 leading-relaxed font-light">
                   When I'm not immersed in code, you'll find me exploring emerging technologies, 
                   contributing to open-source projects, or sharing knowledge with the global developer community.
                 </p>
@@ -97,9 +97,9 @@ const About = () => {
             </div>
             
             {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
               {stats.map((stat, index) => (
-                <div key={index} className="group text-center p-6 border border-black/10 hover:border-black/30 transition-all duration-300">
+                <div key={index} className="group text-center p-4 sm:p-6 border border-black/10 hover:border-black/30 transition-all duration-300">
                   <div className="text-black/60 mb-3 flex justify-center group-hover:scale-110 transition-transform duration-300">
                     {stat.icon}
                   </div>
@@ -110,9 +110,9 @@ const About = () => {
             </div>
             
             {/* Tags */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2 sm:gap-3 lg:gap-4">
               {["React Specialist", "Node.js Expert", "Cloud Architect", "UI/UX Designer", "Problem Solver"].map((tag, index) => (
-                <span key={index} className="border border-black/20 text-black/80 px-4 py-2 text-sm font-light hover:border-black/40 hover:text-black transition-all duration-300">
+                <span key={index} className="border border-black/20 text-black/80 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-light hover:border-black/40 hover:text-black transition-all duration-300">
                   {tag}
                 </span>
               ))}
@@ -121,17 +121,17 @@ const About = () => {
         </div>
         
         {/* Features grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <div key={index} className="group text-center">
-              <div className="relative mb-8">
+              <div className="relative mb-6 sm:mb-8">
                 <div className="absolute inset-0 bg-black/5 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
-                <div className="relative bg-white border border-black/10 p-8 rounded-2xl group-hover:border-black/30 transition-all duration-300">
-                  <div className="text-black w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="relative bg-white border border-black/10 p-6 sm:p-8 rounded-xl sm:rounded-2xl group-hover:border-black/30 transition-all duration-300">
+                  <div className="text-black w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-light text-black mb-4">{feature.title}</h3>
-                  <p className="text-black/70 font-light leading-relaxed">{feature.description}</p>
+                  <h3 className="text-lg sm:text-xl font-light text-black mb-3 sm:mb-4">{feature.title}</h3>
+                  <p className="text-sm sm:text-base text-black/70 font-light leading-relaxed">{feature.description}</p>
                 </div>
               </div>
             </div>
