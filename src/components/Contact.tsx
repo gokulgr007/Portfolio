@@ -8,17 +8,8 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
   const [activeCard, setActiveCard] = useState(0);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -93,16 +84,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-32 bg-white relative overflow-hidden">
-      {/* Dynamic mouse follower */}
-      <div 
-        className="fixed w-6 h-6 bg-black rounded-full pointer-events-none z-50 transition-all duration-100 ease-out"
-        style={{
-          left: mousePosition.x - 12,
-          top: mousePosition.y - 12,
-          transform: isHovering ? 'scale(3)' : 'scale(1)',
-          opacity: isHovering ? 0.3 : 0.8
-        }}
-      />
 
       {/* Animated background patterns */}
       <div className="absolute inset-0 overflow-hidden">
@@ -185,8 +166,6 @@ const Contact = () => {
               <div 
                 key={index} 
                 className={`group relative overflow-hidden ${activeCard === index ? 'scale-105' : ''} transition-all duration-500`}
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
               >
                 <div className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
                 <div className="relative border-2 border-black p-8 text-center group-hover:text-white transition-colors duration-700">
@@ -215,8 +194,6 @@ const Contact = () => {
                   <div 
                     key={index} 
                     className="group relative overflow-hidden"
-                    onMouseEnter={() => setIsHovering(true)}
-                    onMouseLeave={() => setIsHovering(false)}
                   >
                     <div className="absolute inset-0 bg-black/5 transform -skew-y-2 group-hover:skew-y-0 transition-transform duration-700"></div>
                     <div className="relative p-10 border-l-4 border-black/30 group-hover:border-black transition-all duration-500">
@@ -251,8 +228,6 @@ const Contact = () => {
                       key={index} 
                       href="#" 
                       className={`group flex items-center p-6 border-2 border-black/15 transition-all duration-500 ${social.color}`}
-                      onMouseEnter={() => setIsHovering(true)}
-                      onMouseLeave={() => setIsHovering(false)}
                     >
                       <div className="w-16 h-16 border-2 border-black/20 flex items-center justify-center mr-6 group-hover:border-white group-hover:scale-110 transition-all duration-300">
                         {social.icon}
@@ -307,8 +282,6 @@ const Contact = () => {
                           required
                           className="w-full px-0 py-8 bg-transparent border-0 border-b-4 border-black/30 text-black text-xl placeholder-black/40 focus:border-black focus:outline-none transition-all duration-700 font-light group-hover:border-black/60"
                           placeholder="Enter your full name"
-                          onFocus={() => setIsHovering(true)}
-                          onBlur={() => setIsHovering(false)}
                         />
                         <div className="absolute bottom-0 left-0 w-0 h-1 bg-black transition-all duration-700 group-focus-within:w-full"></div>
                       </div>
@@ -329,8 +302,6 @@ const Contact = () => {
                           required
                           className="w-full px-0 py-8 bg-transparent border-0 border-b-4 border-black/30 text-black text-xl placeholder-black/40 focus:border-black focus:outline-none transition-all duration-700 font-light group-hover:border-black/60"
                           placeholder="your@email.com"
-                          onFocus={() => setIsHovering(true)}
-                          onBlur={() => setIsHovering(false)}
                         />
                         <div className="absolute bottom-0 left-0 w-0 h-1 bg-black transition-all duration-700 group-focus-within:w-full"></div>
                       </div>
@@ -352,8 +323,6 @@ const Contact = () => {
                         required
                         className="w-full px-0 py-8 bg-transparent border-0 border-b-4 border-black/30 text-black text-xl placeholder-black/40 focus:border-black focus:outline-none transition-all duration-700 font-light group-hover:border-black/60"
                         placeholder="Web App, Mobile App, E-commerce, AI/ML, etc."
-                        onFocus={() => setIsHovering(true)}
-                        onBlur={() => setIsHovering(false)}
                       />
                       <div className="absolute bottom-0 left-0 w-0 h-1 bg-black transition-all duration-700 group-focus-within:w-full"></div>
                     </div>
@@ -374,8 +343,6 @@ const Contact = () => {
                         required
                         className="w-full px-0 py-8 bg-transparent border-0 border-b-4 border-black/30 text-black text-xl placeholder-black/40 focus:border-black focus:outline-none transition-all duration-700 resize-none font-light group-hover:border-black/60"
                         placeholder="Describe your vision, goals, timeline, budget, and what makes this project special..."
-                        onFocus={() => setIsHovering(true)}
-                        onBlur={() => setIsHovering(false)}
                       ></textarea>
                       <div className="absolute bottom-0 left-0 w-0 h-1 bg-black transition-all duration-700 group-focus-within:w-full"></div>
                     </div>
@@ -386,8 +353,6 @@ const Contact = () => {
                     <button
                       type="submit"
                       className="group relative overflow-hidden w-full"
-                      onMouseEnter={() => setIsHovering(true)}
-                      onMouseLeave={() => setIsHovering(false)}
                     >
                       <div className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-1000 origin-left"></div>
                       <div className="absolute inset-0 border-4 border-black"></div>
