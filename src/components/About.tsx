@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Code, Palette, Zap, Users, Award, Coffee, Rocket, Heart, Target, Star, Crown, Diamond, Sparkles, Eye, Lightning, Gem, Flame, Atom } from 'lucide-react';
+import { Code, Palette, Zap, Users, Award, Coffee, Rocket, Heart, Target, Star, Crown, Diamond, Sparkles, Eye, CloudLightning as Lightning, Gem, Flame, Atom } from 'lucide-react';
 
 const About = () => {
   const [activeParticle, setActiveParticle] = useState(0);
