@@ -64,12 +64,12 @@ const Hero = () => {
               <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
               <div className="mx-4 sm:mx-8 flex items-center">
                 <motion.div
-                  animate={{ rotate: 360 }}
+                  animate={{ rotate: 0 }}
                   transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                 >
                   <Code className="w-4 h-4 sm:w-6 sm:h-6 text-white mr-2 sm:mr-3" />
                 </motion.div>
-                <span className="text-white/60 font-light text-xs sm:text-sm uppercase">Developer</span>
+                <span className="text-white/60 font-light tracking-[0.2em] sm:tracking-[0.3em] text-xs sm:text-sm uppercase">Developer</span>
               </div>
               <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
             </motion.div>
