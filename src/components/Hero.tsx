@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown, Github, Linkedin, Mail, Download, Sparkles, Code } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, Download, Sparkles, Code, Crown, Diamond, Star, Zap } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -31,11 +31,71 @@ const Hero = () => {
                 <span className="text-white/60 font-light tracking-[0.3em] text-sm uppercase">Developer</span>
               </div>
               <div className="w-24 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
+              
+              {/* Floating sparkles around the intro */}
+              <Sparkles className="absolute -top-4 left-1/4 w-6 h-6 text-yellow-300 animate-pulse opacity-70" />
+              <Sparkles className="absolute -bottom-4 right-1/4 w-4 h-4 text-blue-300 animate-pulse opacity-60" style={{ animationDelay: '1s' }} />
             </div>
             
             <h1 className="text-8xl md:text-9xl font-thin text-white mb-8 tracking-tight leading-none">
-              GOKUL
-              <span className="block font-black mt-4 text-7xl md:text-8xl">GR</span>
+              <div className="relative inline-block">
+                {/* Background glow effects */}
+                <div className="absolute inset-0 text-8xl md:text-9xl font-thin text-white/20 blur-3xl animate-pulse">
+                  GOKUL
+                </div>
+                <div className="absolute inset-0 text-8xl md:text-9xl font-thin text-white/10 blur-2xl scale-110 animate-pulse delay-500">
+                  GOKUL
+                </div>
+                
+                {/* Main text with premium effects */}
+                <div className="relative">
+                  <span className="relative inline-block group">
+                    {/* Individual letter animations */}
+                    <span className="inline-block hover:scale-110 transition-all duration-500 hover:text-yellow-300 hover:drop-shadow-[0_0_30px_rgba(255,215,0,0.8)] animate-fade-in-up" style={{ animationDelay: '0.1s' }}>G</span>
+                    <span className="inline-block hover:scale-110 transition-all duration-500 hover:text-yellow-300 hover:drop-shadow-[0_0_30px_rgba(255,215,0,0.8)] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>O</span>
+                    <span className="inline-block hover:scale-110 transition-all duration-500 hover:text-yellow-300 hover:drop-shadow-[0_0_30px_rgba(255,215,0,0.8)] animate-fade-in-up" style={{ animationDelay: '0.3s' }}>K</span>
+                    <span className="inline-block hover:scale-110 transition-all duration-500 hover:text-yellow-300 hover:drop-shadow-[0_0_30px_rgba(255,215,0,0.8)] animate-fade-in-up" style={{ animationDelay: '0.4s' }}>U</span>
+                    <span className="inline-block hover:scale-110 transition-all duration-500 hover:text-yellow-300 hover:drop-shadow-[0_0_30px_rgba(255,215,0,0.8)] animate-fade-in-up" style={{ animationDelay: '0.5s' }}>L</span>
+                    
+                    {/* Floating luxury icons */}
+                    <Crown className="absolute -top-16 -right-8 w-12 h-12 text-yellow-400 animate-bounce opacity-80" style={{ animationDelay: '2s' }} />
+                    <Diamond className="absolute -top-8 -left-12 w-8 h-8 text-blue-300 animate-pulse opacity-70" style={{ animationDelay: '2.5s' }} />
+                  </span>
+                </div>
+              </div>
+              
+              <div className="block mt-8 relative">
+                {/* Background glow for GR */}
+                <div className="absolute inset-0 text-7xl md:text-8xl font-black text-white/20 blur-3xl animate-pulse delay-1000">
+                  GR
+                </div>
+                <div className="absolute inset-0 text-7xl md:text-8xl font-black text-white/10 blur-2xl scale-110 animate-pulse delay-1500">
+                  GR
+                </div>
+                
+                {/* Premium GR text */}
+                <div className="relative">
+                  <span className="relative inline-block group">
+                    {/* Gradient text effect */}
+                    <span className="text-7xl md:text-8xl font-black bg-gradient-to-r from-white via-yellow-200 to-white bg-clip-text text-transparent animate-gradient-x">
+                      <span className="inline-block hover:scale-125 transition-all duration-700 hover:rotate-12 hover:drop-shadow-[0_0_50px_rgba(255,255,255,1)] animate-fade-in-up" style={{ animationDelay: '0.8s' }}>G</span>
+                      <span className="inline-block hover:scale-125 transition-all duration-700 hover:-rotate-12 hover:drop-shadow-[0_0_50px_rgba(255,255,255,1)] animate-fade-in-up" style={{ animationDelay: '0.9s' }}>R</span>
+                    </span>
+                    
+                    {/* Floating premium elements */}
+                    <Star className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-10 h-10 text-yellow-300 animate-spin opacity-90" style={{ animationDuration: '3s', animationDelay: '3s' }} />
+                    <Zap className="absolute -bottom-8 -right-6 w-8 h-8 text-blue-400 animate-pulse opacity-80" style={{ animationDelay: '3.5s' }} />
+                    
+                    {/* Orbiting elements */}
+                    <div className="absolute inset-0 animate-spin" style={{ animationDuration: '10s' }}>
+                      <div className="absolute -top-20 left-1/2 w-3 h-3 bg-yellow-400 rounded-full opacity-60"></div>
+                      <div className="absolute -bottom-20 left-1/2 w-2 h-2 bg-blue-400 rounded-full opacity-60"></div>
+                      <div className="absolute top-1/2 -left-20 w-2 h-2 bg-purple-400 rounded-full opacity-60"></div>
+                      <div className="absolute top-1/2 -right-20 w-3 h-3 bg-green-400 rounded-full opacity-60"></div>
+                    </div>
+                  </span>
+                </div>
+              </div>
             </h1>
             
             <div className="relative mb-8">
