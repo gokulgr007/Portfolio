@@ -73,11 +73,15 @@ const Hero = () => {
                   GR
                 </div>
                 
-                    <span className="text-7xl md:text-8xl font-black bg-gradient-to-r from-white via-yellow-200 to-white bg-clip-text text-transparent animate-gradient-x">
-                      <span className="inline-block hover:scale-125 transition-all duration-700 hover:rotate-12 hover:drop-shadow-[0_0_50px_rgba(255,255,255,1)] animate-fade-in-up" style={{ animationDelay: '0.8s' }}>G</span>
-        <h1 className="text-7xl md:text-8xl lg:text-9xl font-light text-white mb-8 tracking-wide leading-none">
-          GOKUL GR
-        </h1>
+                <span className="text-7xl md:text-8xl font-black bg-gradient-to-r from-white via-yellow-200 to-white bg-clip-text text-transparent animate-gradient-x">
+                  <span className="inline-block hover:scale-125 transition-all duration-700 hover:rotate-12 hover:drop-shadow-[0_0_50px_rgba(255,255,255,1)] animate-fade-in-up" style={{ animationDelay: '0.8s' }}>G</span>
+                </span>
+              </div>
+            </h1>
+            
+            <div className="flex justify-center space-x-6">
+              <a href="#" className="group text-white/60 hover:text-white transition-all duration-300">
+                <Github size={28} className="group-hover:scale-110 transition-transform duration-300" />
               </a>
               <a href="#" className="group text-white/60 hover:text-white transition-all duration-300">
                 <Linkedin size={28} className="group-hover:scale-110 transition-transform duration-300" />
